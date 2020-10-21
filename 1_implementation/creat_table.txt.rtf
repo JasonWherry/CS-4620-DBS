@@ -1,0 +1,43 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 CREATE TABLE Department\
+(	dname				VARCHAR(60)		NOT NULL,\
+	dchair 				VARCHAR(25) 	NOT NULL,\
+	dlocation			VARCHAR(20)		NOT NULL,\
+	PRIMARY KEY(dname) );\
+\
+CREATE TABLE Committee\
+(	cname				VARCHAR(30)		NOT NULL,\
+	num_of_members 		INT 			NOT NULL,	\
+	PRIMARY KEY(cname) );\
+\
+CREATE TABLE Ambassador \
+(	first_name			VARCHAR(20)		NOT NULL,\
+	last_name 			VARCHAR(20) 	NOT NULL,\
+	email				VARCHAR(25)		NOT NULL,\
+	major				VARCHAR(50)		NOT NULL,\
+	graduation_date		DATE 			NOT NULL,\
+	comm_name			VARCHAR(30)		NOT NULL,\
+	dept_name			VARCHAR(60)		NOT NULL,\
+	PRIMARY KEY(email),\
+	FOREIGN KEY(comm_name) REFERENCES Committee(cname),\
+	FOREIGN KEY(dept_name) REFERENCES Department(dname) );\
+\
+CREATE TABLE Projects\
+(	pname				VARCHAR(30)		NOT NULL,\
+	pnum				INT				NOT NULL,\
+	comm_name			VARCHAR(30)		NOT NULL,\
+	start_date			DATE  			NOT NULL,\
+	end_date			DATE,\
+	PRIMARY KEY(pnum) );\
+\
+CREATE TABLE Works_on\
+(	pno					INT 			NOT NULL,\
+	committee_name		VARCHAR(30)		NOT NULL,\
+	FOREIGN KEY(pno) REFERENCES Projects(pnum),\
+	FOREIGN KEY(committee_name) REFERENCES Committee(cname) );}

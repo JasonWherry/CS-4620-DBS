@@ -1,0 +1,1 @@
+The most interested I have been in a school project for Computer Science thus far was creating a database with Oracle. I wrote a JDBC program that prompted the user to choose from a menu of options (embedded SQL queries) to change records in the Database. It could also display two specific states (reports) of the tables (relations) as a way to show that the queries took effect.

@@ -1,0 +1,36 @@
+Name: Jason Wherry
+
+Query 1: 
+
+	select	first_name, last_name, cname
+	from	Ambassador, Committee
+	where 	cname=comm_name AND dept_name='School of Electrical Engineering and Computer Science';
+
+	this query selects 3 attributes (first name, last name, and committee name) from 2 relations (Ambassador and Comittee) with 2 conditions. The first condition states that the committee name in the 'Ambassador' table must equal a committee name in the 'Committee' table. The second condition states that the name of the department must equal 'School of Electrical Engineering and Computer Science'.
+
+
+Query 2: 
+
+	select	MAX(pnum)
+	from	Projects;
+
+	This query is very simple. It uses an aggregate function (MAX()) to select the largest project number from the table 'Projects'.
+
+
+Query 3:
+
+	select	P.pnum
+	from	Ambassador A, Projects P
+	where	A.comm_name=P.comm_name AND A.first_name='Lydia';
+	-
+	select	Q.pno
+	from	Works_on Q, Committee C
+	where	Q.committee_name=C.cname AND Q.committee_name='Historian';
+	
+	This larger query uses Subtraction, 2 queries, and 4 tables. The first query selects the project number from the 'Projects' table and states that the committee name in the 'Ambassador' table must equal the committee name in the 'Projects' table and the first name of the Ambassador must equal 'Lydia'. Then we minus these project numbers with another query which selects the project number from the 'Works_on' table and states that the committee names from both tables 'Works_on' and 'Committee' must be equal. The final condition states that the committee name from the 'Works_on' table must equal 'Historian'. 
+
+	We are left with the output:        
+		PNO
+	----------
+    	     	6
+        	14
